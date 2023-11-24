@@ -1,0 +1,143 @@
+:root{
+    --light-cyan: hsl(193, 38%, 86%);
+    --neon-green: hsl(150,100%,66%);
+    --hover-neon-green: hsl(150,100%,76%);
+
+    --grayish-blue: hsl(217, 19%, 38%);
+    --dark-grayish: hsl(217, 19%, 24%);
+    --dark-blue: hsl(218, 23%, 16%);
+}
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+    /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+    ul[role="list"],
+    ol[role="list"] {
+    list-style: none;
+    }
+
+  /*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+  body {
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    5. Improve media defaults
+  */
+  img, picture, video, canvas, svg { /*IMPORTANTE para el responsive, de esta forma abarca todo el ancho cuando se llega a su tamaño maximo para que no este cortada la imagen*/
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    6. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    7. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  
+  h1,h2,h3{
+    line-height: 1.1; /* IMPORTANTEReducir el espaciado de lo alto entre los H Element*/
+  }
+
+/*------------------------------------------------------------------------------*/
+  body{
+    min-height: 100vh; /* IMPORTANTE De esta forma abarca todo el alto y asi se posciona en el centro los elementos*/
+    display: grid;
+    place-content: center; /*Posiciona todo en el centro*/
+    background: var(--dark-blue);
+    font-family: 'sans-Serif', Helvetica;
+
+  }
+
+ .container{
+    background: var(--dark-grayish);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px;
+    padding: 1rem;
+    border-radius: 1rem;
+ }
+
+ .container p{
+    color: var(--neon-green);
+    text-align: center;
+    font-size: .785rem;
+    letter-spacing: 0.3rem;
+ }
+
+ .container h1{
+    color: var(--light-cyan);
+    text-align: center;
+    font-size: 1.4rem;
+    padding: 1rem;
+ }
+
+ .container img{
+    padding: 1rem;
+    padding-bottom: 2rem;
+ }
+
+button{
+    background-color: var(--neon-green);
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: none;
+    outline: none;
+    display: flex;
+    margin: auto;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1.125em 1em -1em var(--clr-accent-400) ;
+    margin-top: -1rem;
+ }
+
+button:hover, button:focus-visible{
+    background-color: var(--hover-neon-green);
+    box-shadow: 0 1.125em 1em -1em hsl(116,88%,89%) ;
+ }
+
+ .button[data-icon="dice"]::before{ /*Como es un flex item aparecera y no se ocupa declarar*/
+    content: ""; /*En blanco para que renderice*/
+    width: 24px;
+    height: 24px; /*Matching el width y height del icono SVG que se usara*/
+    background-image: url(img/icon-dice.svg);
+}
+
+@media (max-width: 600px){
+    .container h1{
+        font-size: 1.6rem;
+    }
+    button{
+        width: 65px;
+        height: 65px;
+        margin-top: -2rem;
+    }
+    .container picture{
+        margin: auto; /*Centrar*/
+    }
+
+}
